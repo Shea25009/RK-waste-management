@@ -3,11 +3,11 @@
 This repository contains the frontend planning and development files for the DAT709 Sprint 1 assessment.
 
 ## Team
-- Team Name: [Your Team Name]
-- Team Leader: [Team Leader Name]
+- Team Name: Team RK
+- Team Leader: Ram
 
 ## Project
-Project Name: [Your Project Name]
+Project Name: RK's Waste Management
 
 ## Frontend Structure
 - HTML
