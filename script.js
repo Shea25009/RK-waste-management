@@ -5,3 +5,98 @@ const wasteInput=document.querySelector('#wasteSearch');const searchButton=docum
 function openFinder(){const input=document.querySelector('#siteSearch');const value=input?input.value.trim():'';window.location.href=`waste-finder.html${value?`?item=${encodeURIComponent(value)}`:''}`}const siteSearch=document.querySelector('#siteSearch');if(siteSearch)siteSearch.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();openFinder()}});const siteSearchButton=document.querySelector('#siteSearchButton');if(siteSearchButton)siteSearchButton.addEventListener('click',openFinder);
 document.querySelectorAll('[data-feedback]').forEach(button=>button.addEventListener('click',()=>{localStorage.setItem('rkWasteFeedback',button.dataset.feedback);const message=document.querySelector('#feedbackMessage');if(message)message.textContent=`Thanks — your response (${button.dataset.feedback}) has been recorded in this browser.`}));
 const form=document.querySelector('#contactForm');if(form)form.addEventListener('submit',event=>{event.preventDefault();const name=document.querySelector('#name').value.trim();const email=document.querySelector('#email').value.trim();const message=document.querySelector('#formMessage');if(!name||!email){message.textContent='Please complete your name and email.';return}localStorage.setItem('rkWasteMessage',JSON.stringify({name,email,date:new Date().toISOString()}));message.textContent=`Thank you, ${name}. Your message has been recorded for this prototype.`;form.reset()});
+Object.assign(wasteDatabase, {
+  "plastic bottle": [
+    "Recycling",
+    "Empty and rinse the bottle. Lightly replace the lid and place it loose in the yellow-lidded recycling bin."
+  ],
+  "aluminium can": [
+    "Recycling",
+    "Empty and rinse the can, then place it loose in the yellow-lidded recycling bin."
+  ],
+  "paper": [
+    "Recycling",
+    "Keep paper clean and dry, then place it loose in the yellow-lidded recycling bin."
+  ],
+  "food scraps": [
+    "Food and Garden Organics (FOGO)",
+    "Place food scraps in the green-lidded FOGO bin."
+  ],
+  "coffee grounds": [
+    "Food and Garden Organics (FOGO)",
+    "Place used coffee grounds in the green-lidded FOGO bin."
+  ],
+  "garden waste": [
+    "Food and Garden Organics (FOGO)",
+    "Place leaves, grass clippings and small garden prunings in the green-lidded FOGO bin."
+  ],
+  "plastic bag": [
+    "General waste / soft-plastic collection",
+    "Do not place plastic bags in the yellow recycling bin. Use an eligible soft-plastic collection service when available; otherwise use the red-lidded general-waste bin."
+  ],
+  "soft plastic": [
+    "General waste / soft-plastic collection",
+    "Soft plastics do not belong in the yellow recycling bin. Check for an eligible collection service or use the red-lidded general-waste bin."
+  ],
+  "pizza box": [
+    "Recycling",
+    "Place clean pizza boxes in the yellow-lidded recycling bin."
+  ],
+  "battery": [
+    "Battery drop-off",
+    "Never place batteries in any household bin. Tape the terminals and take them to a battery drop-off point or Community Recycling Centre."
+  ],
+  "paint": [
+    "Community Recycling Centre",
+    "Do not place paint in household bins. Take household quantities to a Community Recycling Centre."
+  ],
+  "fluorescent light": [
+    "Community Recycling Centre",
+    "Do not place fluorescent lights in household bins. Take fluorescent tubes and globes to a Community Recycling Centre."
+  ],
+  "mobile phone": [
+    "E-waste drop-off",
+    "Do not place mobile phones in household bins. Take them to an approved e-waste or mobile-phone recycling point."
+  ],
+  "e-waste": [
+    "E-waste drop-off",
+    "Do not place e-waste in household bins. Take computers, televisions and similar devices to an approved e-waste collection point."
+  ]
+});
+const centreFilterButtons = document.querySelectorAll("[data-centre-filter]");
+const centreCards = document.querySelectorAll("[data-centre-items]");
+const centreFinderStatus = document.querySelector("#centreFinderStatus");
+
+if (centreFilterButtons.length && centreCards.length) {
+  centreFilterButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const selectedFilter = button.dataset.centreFilter;
+      let visibleServices = 0;
+
+      centreFilterButtons.forEach((filterButton) => {
+        const isSelected = filterButton === button;
+        filterButton.classList.toggle("is-active", isSelected);
+        filterButton.setAttribute("aria-pressed", String(isSelected));
+      });
+
+      centreCards.forEach((card) => {
+        const acceptedItems = card.dataset.centreItems.split("|");
+        const shouldShow =
+          selectedFilter === "all" || acceptedItems.includes(selectedFilter);
+
+        card.hidden = !shouldShow;
+
+        if (shouldShow) {
+          visibleServices += 1;
+        }
+      });
+
+      if (centreFinderStatus) {
+        centreFinderStatus.textContent =
+          selectedFilter === "all"
+            ? "Showing all available services."
+            : `${visibleServices} service${visibleServices === 1 ? "" : "s"} shown for ${button.textContent.trim().toLowerCase()}.`;
+      }
+    });
+  });
+}

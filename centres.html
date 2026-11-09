@@ -1,1 +1,67 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Drop-off centres | RK's Waste Management</title><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="council.css"></head><body class="council-page"><header class="portal-header"><a class="council-logo" href="index.html"><span>RK</span><b>RK's<br>Waste Management</b></a><button class="menu-toggle" aria-label="Open menu">Menu <b>+</b></button></header><nav class="main-nav council-nav"><a href="index.html">Home</a><a href="about.html">About waste</a><a href="features.html">Bins, Waste & Recycling</a><a href="waste-finder.html">Waste Finder</a><a class="active" href="centres.html">Drop-off centres</a><a href="team.html">Our team</a><a href="contact.html">Contact us</a></nav><main class="portal-page"><p class="overline">DROP-OFF AND RECYCLING CENTRES</p><h1>Waste and recycling centres.</h1><p class="lead">Commercial facilities can accept waste that does not belong in household bins. Fees, opening hours and acceptance criteria may apply—contact a facility before visiting.</p><table class="centre-table"><thead><tr><th>Operator</th><th>Location</th><th>Contact</th><th>More information</th></tr></thead><tbody><tr><td>Cleanaway</td><td>Old Hill Link, Homebush Bay</td><td>8645 4304</td><td><a href="https://www.cleanaway.com.au/" target="_blank" rel="noopener">Visit provider</a></td></tr><tr><td>Remondis</td><td>29 Powers Road, Seven Hills</td><td>137 373</td><td><a href="https://www.remondis-australia.com.au/" target="_blank" rel="noopener">Visit provider</a></td></tr><tr><td>Cleanaway</td><td>145 Wicks Road, North Ryde</td><td>8645 4304</td><td><a href="https://www.cleanaway.com.au/" target="_blank" rel="noopener">Visit provider</a></td></tr></tbody></table><div class="notice"><b>Source and verification</b><p>This directory is adapted as a learning example from the City of Parramatta’s public Waste and Recycling Centres page. Check the provider directly for current hours, fees and accepted waste before attending.</p></div></main><footer class="council-footer"><div><a class="council-logo" href="index.html"><span>RK</span><b>RK's<br>Waste Management</b></a></div><div><a href="waste-finder.html">Waste Finder</a></div><div><a href="contact.html">Contact the team</a><p>© <span class="current-year"></span> Team RK</p></div></footer><script src="script.js"></script></body></html>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Drop-off centres | RK's Waste Management</title><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="council.css"></head><body class="council-page"><header class="portal-header"><a class="council-logo" href="index.html"><span>RK</span><b>RK's<br>Waste Management</b></a><button class="menu-toggle" aria-label="Open menu">Menu <b>+</b></button></header><nav class="main-nav council-nav"><a href="index.html">Home</a><a href="about.html">About waste</a><a href="features.html">Bins, Waste & Recycling</a><a href="waste-finder.html">Waste Finder</a><a class="active" href="centres.html">Drop-off centres</a><a href="team.html">Our team</a><a href="contact.html">Contact us</a></nav><main class="portal-page"><p class="overline">DROP-OFF AND RECYCLING CENTRES</p><h1>Waste and recycling centres.</h1><p class="lead">Commercial facilities can accept waste that does not belong in household bins. Fees, opening hours and acceptance criteria may apply—contact a facility before visiting.</p><table class="centre-table"><thead><tr><th>Operator</th><th>Location</th><th>Contact</th><th>More information</th></tr></thead><tbody><tr><td>Cleanaway</td><td>Old Hill Link, Homebush Bay</td><td>8645 4304</td><td><a href="https://www.cleanaway.com.au/" target="_blank" rel="noopener">Visit provider</a></td></tr><tr><td>Remondis</td><td>29 Powers Road, Seven Hills</td><td>137 373</td><td><a href="https://www.remondis-australia.com.au/" target="_blank" rel="noopener">Visit provider</a></td></tr><tr><td>Cleanaway</td><td>145 Wicks Road, North Ryde</td><td>8645 4304</td><td><a href="https://www.cleanaway.com.au/" target="_blank" rel="noopener">Visit provider</a></td></tr></tbody></table><div class="notice"><b>Source and verification</b><p>This directory is adapted as a learning example from the City of Parramatta’s public Waste and Recycling Centres page. Check the provider directly for current hours, fees and accepted waste before attending.</p></div><section class="centre-finder" aria-labelledby="centre-finder-title">
+  <div class="centre-finder__intro">
+    <p class="centre-finder__eyebrow">LOCAL DISPOSAL SERVICES</p>
+    <h2 id="centre-finder-title">Find a drop-off service</h2>
+    <p>Choose an item to find the most suitable disposal service. Always check current requirements before visiting.</p>
+  </div>
+
+  <div class="centre-finder__filters" role="group" aria-label="Filter services by waste item">
+    <button class="centre-filter is-active" type="button" data-centre-filter="all" aria-pressed="true">All services</button>
+    <button class="centre-filter" type="button" data-centre-filter="battery" aria-pressed="false">Batteries</button>
+    <button class="centre-filter" type="button" data-centre-filter="paint" aria-pressed="false">Paint</button>
+    <button class="centre-filter" type="button" data-centre-filter="e-waste" aria-pressed="false">E-waste</button>
+    <button class="centre-filter" type="button" data-centre-filter="soft plastic" aria-pressed="false">Soft plastics</button>
+  </div>
+
+  <p id="centreFinderStatus" class="centre-finder__status" aria-live="polite">
+    Showing all available services.
+  </p>
+
+  <div class="centre-finder__results">
+    <article class="centre-card" data-centre-items="battery|paint|fluorescent light|e-waste">
+      <p class="centre-card__label">DROP-OFF CENTRE</p>
+      <h3>Parramatta Community Recycling Centre</h3>
+      <p>Suitable for household batteries, paint, fluorescent lights, selected e-waste and other problem waste.</p>
+
+      <dl class="centre-card__details">
+        <div>
+          <dt>Address</dt>
+          <dd>104 Grose Street, North Parramatta NSW 2151</dd>
+        </div>
+        <div>
+          <dt>Opening hours</dt>
+          <dd>Tuesday–Friday: 8am–4pm<br>Saturday: 8am–12pm</dd>
+        </div>
+      </dl>
+
+      <div class="centre-card__links">
+        <a href="https://www.google.com/maps/search/?api=1&query=104+Grose+Street+North+Parramatta+NSW+2151" target="_blank" rel="noopener">Get directions →</a>
+        <a href="https://www.cityofparramatta.nsw.gov.au/residents/bins-waste-and-recycling/other-waste-services/community-recycling-centre" target="_blank" rel="noopener">Check accepted materials →</a>
+      </div>
+    </article>
+
+    <article class="centre-card" data-centre-items="e-waste|mobile phone">
+      <p class="centre-card__label">SPECIAL RECYCLING</p>
+      <h3>E-waste and mobile devices</h3>
+      <p>Computers, televisions, phones and accessories must not be placed in household bins.</p>
+
+      <div class="centre-card__links">
+        <a href="https://www.cityofparramatta.nsw.gov.au/residents/bins-waste-and-recycling/other-waste-services/electronic-waste" target="_blank" rel="noopener">Find e-waste options →</a>
+      </div>
+    </article>
+
+    <article class="centre-card" data-centre-items="soft plastic|plastic bag">
+      <p class="centre-card__label">SPECIAL COLLECTION</p>
+      <h3>Soft plastics and plastic bags</h3>
+      <p>Soft plastics must not go into the yellow-lidded recycling bin. Check for an eligible collection service before disposal.</p>
+
+      <div class="centre-card__links">
+        <a href="https://www.cityofparramatta.nsw.gov.au/residents/bins-waste-and-recycling/a-z-guide-to-waste-and-recycling/plastic-bags" target="_blank" rel="noopener">Check soft-plastic guidance →</a>
+      </div>
+    </article>
+  </div>
+
+  <p class="centre-finder__note">
+    Educational guidance only. Confirm opening hours and accepted materials before travelling.
+  </p>
+</section></main><footer class="council-footer"><div><a class="council-logo" href="index.html"><span>RK</span><b>RK's<br>Waste Management</b></a></div><div><a href="waste-finder.html">Waste Finder</a></div><div><a href="contact.html">Contact the team</a><p>© <span class="current-year"></span> Team RK</p></div></footer><script src="script.js"></script></body></html>
